@@ -11,7 +11,7 @@ def main():
         print("Incorrect number of arguments. \nMust be at least 2 csv files")
         sys.exit()
 
-
+    #get the names of the files from stdin
     for name in sys.argv[1:]:
         f_names.append(name)
     
@@ -57,6 +57,7 @@ def create_header(file_names):
 
     #append a new column to header for the file name
     col_names.append("filename")
+    #write the header to the new combine file
     with open('combine.csv', 'w') as csvfile:
         writer = csv.writer(csvfile, doublequote=False, escapechar='\\', quoting=csv.QUOTE_ALL)
         writer.writerow(col_names)
